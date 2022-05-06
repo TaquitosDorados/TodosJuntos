@@ -4,6 +4,7 @@ import Footer from './shared/layout/Footer';
 import Content from './shared/layout/Content';
 import Timer from './pomodoro/Timer';
 import Estafa from './Estafa/Estafa';
+import Chart from "./Chart/Charthome";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Content>
          <Timer />
          <Estafa />
+         <Chart />
       </Content>
       <Footer />
     </div>
