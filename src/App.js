@@ -5,7 +5,9 @@ import Content from './shared/layout/Content';
 import Timer from './pomodoro/Timer';
 import Estafa from './Estafa/Estafa';
 import Chart from "./Chart/Charthome";
-
+import Animation from "./Animating/Animation";
+import Numbers from "./PureComponent/Numbers";
+import Calculator from './Calculator/Calculator';
 function App() {
   return (
     <div className="App">
@@ -16,6 +18,9 @@ function App() {
          <Timer />
          <Estafa />
          <Chart />
+         <Animation/>
+         <Numbers/>
+         <Calculator/>
       </Content>
       <Footer />
     </div>

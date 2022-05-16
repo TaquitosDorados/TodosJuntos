@@ -1,0 +1,13 @@
+.Animation {
+    background-color: aquamarine;
+}
+
+.Animation .transition{
+    transition: all 3s ease 0s;
+    color: white;
+}
+
+.Animation .transition.show{
+    transition: all 3s ease 0s;
+    background-color: aquamarine;
+}
