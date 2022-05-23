@@ -16,11 +16,11 @@ function App() {
       
       <Content>
          <Timer />
-         <Estafa />
+         {/*<Estafa />
          <Chart />
          <Animation/>
          <Numbers/>
-         <Calculator/>
+          <Calculator/>*/}
       </Content>
       <Footer />
     </div>

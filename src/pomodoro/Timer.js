@@ -12,7 +12,9 @@ class Timer extends Component {
                 message: '',
             }, 
 
-            time: 0
+            time: 0,
+            paused: false,
+            started: false
         };
 
         this.times = {
@@ -40,7 +42,8 @@ class Timer extends Component {
             alert: {
                 type: 'work',
                 message: 'WORKING!'
-            }
+            },
+            started: true
         })
 
         this.setTime(this.times.defaultTime);
@@ -51,7 +54,8 @@ class Timer extends Component {
             alert: {
                 type: 'shortBreak',
                 message: 'Taking a Short Break!'
-            }
+            },
+            started: true
         });
 
         this.setTime(this.times.shortBreak);
@@ -62,13 +66,15 @@ class Timer extends Component {
             alert: {
                 type: 'longBreak',
                 message: 'Taking a Long Break!'
-            }
+            },
+            started: true
         });
 
         this.setTime(this.times.longBreak);
     }
       
     setTime = (newTime) => {
+
         this.restartInterval();
         this.setState({
             time: newTime
@@ -77,7 +83,6 @@ class Timer extends Component {
 
     restartInterval = () => {
         clearInterval(this.interval);
-
         this.interval = setInterval(this.countDown, 1000);
     }
 
@@ -90,7 +95,7 @@ class Timer extends Component {
                 }
             });
         }
-        else{
+        else if(!this.state.paused && this.state.started){
             this.setState({
                  time: this.state.time - 1
             });
@@ -115,6 +120,24 @@ class Timer extends Component {
         }
     }
 
+    Pause = () => {
+        this.setState({ 
+            paused: !this.state.paused,
+        })
+    }
+
+    Stop = () => {
+        this.setState({ 
+            paused: false,
+            started: false,
+            alert: {
+                message: '',
+                type: '',
+            }
+        })
+        this.setDefaultTime();
+    }
+
     render() {
 
         const {alert: {message, type}, time} = this.state;
@@ -125,7 +148,7 @@ class Timer extends Component {
                 </div>
 
                 <div className = "timer">
-                    {this.displayTimer(this.state.time)}
+                    {this.displayTimer(time)}
                 </div>
 
                 <div className = "types">
@@ -146,6 +169,21 @@ class Timer extends Component {
                         onClick={this.setTimeForLongBreak}
                     >
                         Long Break
+                    </button>
+                </div>
+
+                <div hidden = {!this.state.started}>
+                    <button
+                    className = {this.state.paused? 'play':'pause'}
+                        onClick={this.Pause}
+                    >
+                        <i className = {this.state.paused? 'fa fa-play':'fa fa-pause'}></i>
+                    </button>
+
+                    <button
+                        onClick={this.Stop}
+                    >
+                        <i className = 'fa fa-stop'></i>
                     </button>
                 </div>                
             </div>
