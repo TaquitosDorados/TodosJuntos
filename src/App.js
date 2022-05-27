@@ -8,6 +8,7 @@ import Chart from "./Chart/Charthome";
 import Animation from "./Animating/Animation";
 import Numbers from "./PureComponent/Numbers";
 import Calculator from './Calculator/Calculator';
+import Person from './Forms/Person';
 function App() {
   return (
     <div className="App">
@@ -16,11 +17,12 @@ function App() {
       
       <Content>
          <Timer />
-         {/*<Estafa />
+         <Estafa />
          <Chart />
          <Animation/>
          <Numbers/>
-          <Calculator/>*/}
+          <Calculator/>
+          <Person/>
       </Content>
       <Footer />
     </div>
