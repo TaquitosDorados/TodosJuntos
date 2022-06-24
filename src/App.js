@@ -9,6 +9,7 @@ import Animation from "./Animating/Animation";
 import Numbers from "./PureComponent/Numbers";
 import Calculator from './Calculator/Calculator';
 import Person from './Forms/Person';
+import Popup from 'reactjs-popup';
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
           <Calculator/>
           <Person/>
       </Content>
+      <Popup/>
       <Footer />
     </div>
   );

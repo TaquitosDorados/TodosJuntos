@@ -11,3 +11,6 @@
     background-color: rgb(91, 169, 60);
 }
 
+.person .errorMessage{
+    color: "red"
+}
